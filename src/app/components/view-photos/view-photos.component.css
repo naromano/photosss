@@ -1,0 +1,33 @@
+
+
+.slideshow-container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #e1d7d5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.fullscreen-image {
+  position: absolute;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  animation: fadeInZoom 1.5s ease-in-out forwards;
+}
+
+/* ✨ Animación fade in + zoom suave */
+@keyframes fadeInZoom {
+  0% {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

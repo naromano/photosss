@@ -1,0 +1,8 @@
+<div class="slideshow-container">
+  <!-- Usamos animationKey como clave para forzar reinicio de la animación -->
+  <img *ngIf="currentPhotoUrl" 
+       [src]="currentPhotoUrl" 
+       alt="Foto" 
+       class="fullscreen-image" 
+       [attr.data-key]="animationKey">
+</div>
