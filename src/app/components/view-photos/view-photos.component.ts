@@ -23,7 +23,7 @@ export class ViewPhotosComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    clearInterval(this.photoInterval);   // Limpiamos el intervalo cuando se destruye el componente
+    clearInterval(this.photoInterval);
     this.subscription.unsubscribe();
   }
 
@@ -43,12 +43,20 @@ export class ViewPhotosComponent implements OnInit, OnDestroy {
       if (this.photos.length > 0) {
         this.setRandomPhoto();
       }
-    }, 5000); // Cambia cada 5 segundos
+    }, 15000); // Cambia cada 15 segundos
   }
 
   setRandomPhoto(): void {
-    const randomIndex = Math.floor(Math.random() * this.photos.length);
-    this.currentPhotoUrl = this.photos[randomIndex].url;
-    this.animationKey++;  // Incrementamos para reiniciar la animación
-  }
+  if (this.photos.length === 0) return;
+
+  let randomIndex: number;
+
+  do {
+    randomIndex = Math.floor(Math.random() * this.photos.length);
+  } while (this.photos[randomIndex].url === this.currentPhotoUrl && this.photos.length > 1);
+
+  this.currentPhotoUrl = this.photos[randomIndex].url;
+  this.animationKey++;
+}
+
 }

@@ -1,5 +1,25 @@
-<h1>holaaaaaa</h1>
+<div class="container">
+  <h1>¡Compartí una fotito con nosotros!</h1>
 
-<input class="inputUp" type="file" accept=".png, .jpg, .jpeg" (change)="subirFoto($event)" id="inputFile"/>
+  <input
+    class="inputUp"
+    type="file"
+    accept="image/*"
+    capture="environment"
+    (change)="subirFoto($event)"
+    id="inputFile"
+  />
 
-<label for="inputFile">Subir archivo</label>
+  <label for="inputFile">
+    <img
+      src="https://firebasestorage.googleapis.com/v0/b/weeding-photos-beb42.firebasestorage.app/o/iconoSubir_color813118-removebg-preview.png?alt=media&token=69448aa8-1fcc-4337-bc85-8bf43faffccd"
+      alt="Subir foto"
+    />
+  </label>
+
+  <!-- Barra de progreso -->
+  <div *ngIf="isUploading" class="progress-container">
+    <progress value="{{ progress }}" max="100"></progress>
+    <span>{{ progress }}%</span>
+  </div>
+</div>
