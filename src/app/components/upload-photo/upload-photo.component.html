@@ -1,11 +1,16 @@
 <div class="container">
+  <img
+    class="image1"
+    src="https://firebasestorage.googleapis.com/v0/b/weeding-photos-beb42.firebasestorage.app/o/flor1.png?alt=media&token=a4476550-1585-4db9-af3d-af88a0184e74"
+    alt="Flor arriba izquierda"
+  />
+
   <h1>¡Compartí una fotito con nosotros!</h1>
 
   <input
     class="inputUp"
     type="file"
     accept="image/*"
-    capture="environment"
     (change)="subirFoto($event)"
     id="inputFile"
   />
@@ -17,9 +22,14 @@
     />
   </label>
 
-  <!-- Barra de progreso -->
   <div *ngIf="isUploading" class="progress-container">
-    <progress value="{{ progress }}" max="100"></progress>
+    <progress [value]="progress" max="100"></progress>
     <span>{{ progress }}%</span>
   </div>
+
+  <img
+    class="image2"
+    src="https://firebasestorage.googleapis.com/v0/b/weeding-photos-beb42.firebasestorage.app/o/flor2.png?alt=media&token=69e7cf41-c015-419d-ac9a-9fc529f1f8c7"
+    alt="Flor abajo derecha"
+  />
 </div>
